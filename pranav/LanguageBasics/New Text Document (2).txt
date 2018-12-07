@@ -1,0 +1,7 @@
+public class MyFirstJavaProgram {
+   public static void main(String []args) {
+      int a=Integer.parseString(args[0]);
+      int b=Integer.parseString(args[1]);
+      System.out.println(a+b);		
+   }
+}
