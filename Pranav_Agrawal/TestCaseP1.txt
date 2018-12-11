@@ -1,0 +1,65 @@
+IdentifyEquivalent Classes and Boundary values for each of the below requirements
+Requirements:
+ An employee in an organization can enter transactions only in working hours. When an employee selects ‘transaction menu’ , the system checks the ‘system time’ and performs the following checks :
+1. Transactions are not allowed on Saturday and Sunday.
+2. There is a list of holidays. Transactions are not allowed on holidays. 
+3. For clerks, the ‘transaction hours’ are 9.00 to 13.00.
+4. For officers, the ‘transaction hours’ are 9.00 to 15.00.
+5. Anybody else is not allowed access to transaction menu.
+
+
+1)****************************************Equivalence Partitioning Testcases*********************************************
+	Invalid	->	Saturday and Sunday
+	Valid	->	Monday to Friday
+  *********************************************Boundary Value Analysis***************************************************
+	Friday	Saturday   Sunday						Sunday 	Monday	Tuesday	
+	Valid	Invalid	   Invalid						Invaid	Valid	Valid
+
+2)List Of Holidays:
+  `````````````````
+->1st January	New Year
+->26th January	Republic Day 
+->15th August	Independence Day
+->2nd October	Gandhi Jayanti
+->25th December	Christmas
+
+  ****************************************Equivalence Partitioning Testcases*********************************************
+	Invalid	->	1st January, 26th January, 15th August, 2nd October, 25th December.
+	Valid	->	Days Except 1st January, 26th January, 15th August, 2nd October, 25th December in a year and 
+			Except Saturday And Sunday in a week.
+  *********************************************Boundary Value Analysis***************************************************
+	31st December	1st January	2nd January							
+	valid		Invalid	   	Valid	
+
+	25th January	26th January	27th January
+	valid		Invalid	   	Valid
+
+	14thAugust	15th August	16th August
+	valid		Invalid	   	Valid
+
+	1st October	2nd October	3rd October
+	valid		Invalid	   	Valid
+
+	24th December	25th December	26th December			
+	valid		Invalid	   	Valid			
+									
+3)****************************************Equivalence Partitioning Testcases*********************************************
+	Invalid	->	00:00 to 08:59  and   13:01 to 23:59
+	Valid	->	09:00 to 13:00 
+  *********************************************Boundary Value Analysis***************************************************
+	08:59	09:00	09:01								12:59	13:00	13:01
+	Invalid valid	Valid								Valid	Valid	Invalid
+
+4)****************************************Equivalence Partitioning Testcases*********************************************
+	Invalid	->	00:00 to 08:59  and   15:01 to 23:59
+	Valid	->	09:00 to 15:00 
+  *********************************************Boundary Value Analysis***************************************************
+	08:59	09:00	09:01								14:59	15:00	15:01
+	Invalid valid	Valid								Valid	Valid	Invalid	
+
+5)****************************************Equivalence Partitioning Testcases*********************************************
+	Invalid	->	Other Employees then Clerk and Officers
+	Valid	->	Clerk and Officer
+  *********************************************Boundary Value Analysis***************************************************
+	Peon	Clerk	Officer	Security personnel								
+	Invalid valid	Valid	Invalid								
